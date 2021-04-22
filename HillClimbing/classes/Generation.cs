@@ -8,8 +8,8 @@ namespace HillClimbing.classes
 {
     class Generation
     {
-        public double Tau { get; set; }
-        public double T { get; set; }
-        public double Fx { get; set; }
+        public int Iteration { get; set; }
+        public int SolveCount { get; set; }
+        public int Cumulation { get; set; }
     }
 }

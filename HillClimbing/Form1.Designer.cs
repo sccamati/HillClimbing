@@ -30,9 +30,12 @@ namespace HillClimbing
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.testBtn = new System.Windows.Forms.Button();
             this.table = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
@@ -45,15 +48,30 @@ namespace HillClimbing
             this.bBox = new System.Windows.Forms.TextBox();
             this.aBox = new System.Windows.Forms.TextBox();
             this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.individualBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panelTest = new System.Windows.Forms.Panel();
+            this.algorithm = new System.Windows.Forms.Button();
+            this.startTestBtn = new System.Windows.Forms.Button();
+            this.testTable = new System.Windows.Forms.DataGridView();
+            this.testChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.iterationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.solveCountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cumulationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.generationBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xrealDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xintDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xbitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fxDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.individualBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.generationBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
+            this.panelTest.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.testTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.generationBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.individualBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.generationBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // testBtn
@@ -64,6 +82,7 @@ namespace HillClimbing
             this.testBtn.TabIndex = 27;
             this.testBtn.Text = "testy";
             this.testBtn.UseVisualStyleBackColor = true;
+            this.testBtn.Click += new System.EventHandler(this.testBtn_Click);
             // 
             // table
             // 
@@ -164,23 +183,109 @@ namespace HillClimbing
             // 
             // chart
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chart.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart.Legends.Add(legend3);
+            chartArea7.Name = "ChartArea1";
+            this.chart.ChartAreas.Add(chartArea7);
+            legend7.Name = "Legend1";
+            this.chart.Legends.Add(legend7);
             this.chart.Location = new System.Drawing.Point(21, 133);
             this.chart.Name = "chart";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chart.Series.Add(series3);
+            series7.ChartArea = "ChartArea1";
+            series7.Legend = "Legend1";
+            series7.Name = "Series1";
+            this.chart.Series.Add(series7);
             this.chart.Size = new System.Drawing.Size(1207, 585);
             this.chart.TabIndex = 28;
             this.chart.Text = "chart1";
             // 
-            // individualBindingSource
+            // panelTest
             // 
-            this.individualBindingSource.DataSource = typeof(HillClimbing.classes.Individual);
+            this.panelTest.Controls.Add(this.testChart);
+            this.panelTest.Controls.Add(this.testTable);
+            this.panelTest.Controls.Add(this.startTestBtn);
+            this.panelTest.Controls.Add(this.algorithm);
+            this.panelTest.Location = new System.Drawing.Point(12, 12);
+            this.panelTest.Name = "panelTest";
+            this.panelTest.Size = new System.Drawing.Size(1358, 729);
+            this.panelTest.TabIndex = 29;
+            // 
+            // algorithm
+            // 
+            this.algorithm.Location = new System.Drawing.Point(34, 21);
+            this.algorithm.Name = "algorithm";
+            this.algorithm.Size = new System.Drawing.Size(75, 23);
+            this.algorithm.TabIndex = 0;
+            this.algorithm.Text = "algorytm";
+            this.algorithm.UseVisualStyleBackColor = true;
+            this.algorithm.Click += new System.EventHandler(this.algorithm_Click);
+            // 
+            // startTestBtn
+            // 
+            this.startTestBtn.Location = new System.Drawing.Point(132, 21);
+            this.startTestBtn.Name = "startTestBtn";
+            this.startTestBtn.Size = new System.Drawing.Size(75, 23);
+            this.startTestBtn.TabIndex = 2;
+            this.startTestBtn.TabStop = false;
+            this.startTestBtn.Text = "start";
+            this.startTestBtn.UseVisualStyleBackColor = true;
+            this.startTestBtn.Click += new System.EventHandler(this.startTestBtn_Click);
+            // 
+            // testTable
+            // 
+            this.testTable.AllowUserToAddRows = false;
+            this.testTable.AllowUserToDeleteRows = false;
+            this.testTable.AutoGenerateColumns = false;
+            this.testTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.testTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iterationDataGridViewTextBoxColumn,
+            this.solveCountDataGridViewTextBoxColumn,
+            this.cumulationDataGridViewTextBoxColumn});
+            this.testTable.DataSource = this.generationBindingSource1;
+            this.testTable.Location = new System.Drawing.Point(34, 61);
+            this.testTable.Name = "testTable";
+            this.testTable.ReadOnly = true;
+            this.testTable.Size = new System.Drawing.Size(361, 619);
+            this.testTable.TabIndex = 3;
+            // 
+            // testChart
+            // 
+            chartArea8.Name = "ChartArea1";
+            this.testChart.ChartAreas.Add(chartArea8);
+            legend8.Name = "Legend1";
+            this.testChart.Legends.Add(legend8);
+            this.testChart.Location = new System.Drawing.Point(407, 61);
+            this.testChart.Name = "testChart";
+            series8.ChartArea = "ChartArea1";
+            series8.Legend = "Legend1";
+            series8.Name = "Series1";
+            this.testChart.Series.Add(series8);
+            this.testChart.Size = new System.Drawing.Size(948, 654);
+            this.testChart.TabIndex = 4;
+            this.testChart.Text = "chart1";
+            // 
+            // iterationDataGridViewTextBoxColumn
+            // 
+            this.iterationDataGridViewTextBoxColumn.DataPropertyName = "Iteration";
+            this.iterationDataGridViewTextBoxColumn.HeaderText = "Iteration";
+            this.iterationDataGridViewTextBoxColumn.Name = "iterationDataGridViewTextBoxColumn";
+            this.iterationDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // solveCountDataGridViewTextBoxColumn
+            // 
+            this.solveCountDataGridViewTextBoxColumn.DataPropertyName = "SolveCount";
+            this.solveCountDataGridViewTextBoxColumn.HeaderText = "SolveCount";
+            this.solveCountDataGridViewTextBoxColumn.Name = "solveCountDataGridViewTextBoxColumn";
+            this.solveCountDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cumulationDataGridViewTextBoxColumn
+            // 
+            this.cumulationDataGridViewTextBoxColumn.DataPropertyName = "Cumulation";
+            this.cumulationDataGridViewTextBoxColumn.HeaderText = "Cumulation";
+            this.cumulationDataGridViewTextBoxColumn.Name = "cumulationDataGridViewTextBoxColumn";
+            this.cumulationDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // generationBindingSource1
+            // 
+            this.generationBindingSource1.DataSource = typeof(HillClimbing.classes.Generation);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -217,11 +322,20 @@ namespace HillClimbing
             this.fxDataGridViewTextBoxColumn.Name = "fxDataGridViewTextBoxColumn";
             this.fxDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // individualBindingSource
+            // 
+            this.individualBindingSource.DataSource = typeof(HillClimbing.classes.Individual);
+            // 
+            // generationBindingSource
+            // 
+            this.generationBindingSource.DataSource = typeof(HillClimbing.classes.Generation);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1396, 778);
+            this.Controls.Add(this.panelTest);
             this.Controls.Add(this.chart);
             this.Controls.Add(this.testBtn);
             this.Controls.Add(this.table);
@@ -238,7 +352,12 @@ namespace HillClimbing
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.table)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart)).EndInit();
+            this.panelTest.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.testTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.generationBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.individualBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.generationBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -264,6 +383,19 @@ namespace HillClimbing
         private System.Windows.Forms.DataGridViewTextBoxColumn xbitDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fxDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource individualBindingSource;
+        private System.Windows.Forms.Panel panelTest;
+        private System.Windows.Forms.Button algorithm;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tauDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fxDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.BindingSource generationBindingSource;
+        private System.Windows.Forms.Button startTestBtn;
+        private System.Windows.Forms.DataGridView testTable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iterationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn solveCountDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cumulationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource generationBindingSource1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart testChart;
     }
 }
 

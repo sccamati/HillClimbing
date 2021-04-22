@@ -85,7 +85,7 @@ namespace HillClimbing.classes
             });
 
 
-            return individuals.First(ind => ind.Fx == individuals.Max(i => i.Fx));
+            return individuals.First();
         }
     }
 }
